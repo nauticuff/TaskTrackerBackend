@@ -95,7 +95,7 @@ In our app user should be able to login, create account, home page (see all task
 
 
 AZURE DATABASE INFO
-Server Name:
+Server Name: task-tracker-sprint
 Server Admin Login: brandonisthebest
 Password: weloveBrandon!!
 
