@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlo\\Documents\\Level3Codestack\\TaskTrackerReact\\tasktrackerBackEnd\\tasktrackerBackEnd.csproj": {}
+    "C:\\Users\\rcj53\\Documents\\CodeStack Assignments\\Lvl4\\TaskTrackerBackend\\TaskTrackerBackend\\tasktrackerBackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlo\\Documents\\Level3Codestack\\TaskTrackerReact\\tasktrackerBackEnd\\tasktrackerBackEnd.csproj": {
+    "C:\\Users\\rcj53\\Documents\\CodeStack Assignments\\Lvl4\\TaskTrackerBackend\\TaskTrackerBackend\\tasktrackerBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlo\\Documents\\Level3Codestack\\TaskTrackerReact\\tasktrackerBackEnd\\tasktrackerBackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\rcj53\\Documents\\CodeStack Assignments\\Lvl4\\TaskTrackerBackend\\TaskTrackerBackend\\tasktrackerBackEnd.csproj",
         "projectName": "tasktrackerBackEnd",
-        "projectPath": "C:\\Users\\carlo\\Documents\\Level3Codestack\\TaskTrackerReact\\tasktrackerBackEnd\\tasktrackerBackEnd.csproj",
-        "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlo\\Documents\\Level3Codestack\\TaskTrackerReact\\tasktrackerBackEnd\\obj\\",
+        "projectPath": "C:\\Users\\rcj53\\Documents\\CodeStack Assignments\\Lvl4\\TaskTrackerBackend\\TaskTrackerBackend\\tasktrackerBackEnd.csproj",
+        "packagesPath": "C:\\Users\\rcj53\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rcj53\\Documents\\CodeStack Assignments\\Lvl4\\TaskTrackerBackend\\TaskTrackerBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\rcj53\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,6 +38,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
