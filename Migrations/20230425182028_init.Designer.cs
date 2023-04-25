@@ -11,7 +11,7 @@ using TaskTrackerBackend.Services.Context;
 namespace tasktrackerBackEnd.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230425175945_init")]
+    [Migration("20230425182028_init")]
     partial class init
     {
         /// <inheritdoc />
