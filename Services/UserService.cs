@@ -6,11 +6,11 @@ using TaskTrackerBackend.Models;
 using TaskTrackerBackend.Models.DTO;
 using TaskTrackerBackend.Services.Context;
 using System.Security.Cryptography;
-
+using Microsoft.AspNetCore.Mvc;
 
 namespace TaskTrackerBackend.Services
 {
-    public class UserService
+    public class UserService : ControllerBase
     {
         private readonly DataContext _context;
         public UserService(DataContext context)
@@ -76,6 +76,9 @@ namespace TaskTrackerBackend.Services
             var rfc2898DeriveBytes = new Rfc2898DeriveBytes(Password, SaltBytes, 10000);
             var newHash = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
             return newHash == storedHash;
+        }
+        public IActionResult Login(LoginDTO User){
+            
         }
     }
 }

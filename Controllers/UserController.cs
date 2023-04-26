@@ -19,8 +19,15 @@ namespace TaskTrackerBackend.Controllers
             _data = dataFromService;
         }
         //Login
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login([FromBody] LoginDTO User)
+        {
+            return _data.Login(User);
+        }
 
         //Add a user
+        [HttpPost("AddUser")]
             //if user already exists
             //if they do not exist we can then have the acc created
             //else throw a false
