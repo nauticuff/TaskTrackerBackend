@@ -118,5 +118,43 @@ namespace TaskTrackerBackend.Services
         {
             return _context.UserInfo.SingleOrDefault(user => user.UserName == username);
         }
+
+        public bool UpdateUser(UserModel userToUpdate)
+        {
+            _context.Update<UserModel>(userToUpdate);
+            return _context.SaveChanges() != 0;
+        }
+
+        public bool UpdateUsername(int id, string username)
+        {
+            //Sending id and username
+            //have to get object to then update
+            UserModel foundUser = GetUserById(id);
+            bool result = false;
+            if (foundUser != null)
+            {
+                foundUser.UserName = username;
+                _context.Update<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
+        }
+
+        public UserModel GetUserById(int id)
+        {
+            return _context.UserInfo.SingleOrDefault(user => user.ID == id);
+
+        }
+
+        public bool DeleteUser(string userToDelete)
+        {
+            UserModel foundUser = GetUserByUsername(userToDelete);
+            bool result = false;
+            if(foundUser != null){
+                _context.Remove<UserModel>(foundUser);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
+        }
     }
 }
