@@ -7,6 +7,10 @@ using TaskTrackerBackend.Models.DTO;
 using TaskTrackerBackend.Services.Context;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using System.Security.Claims;
 
 namespace TaskTrackerBackend.Services
 {
@@ -77,8 +81,42 @@ namespace TaskTrackerBackend.Services
             var newHash = Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(256));
             return newHash == storedHash;
         }
-        public IActionResult Login(LoginDTO User){
-            
+        public IActionResult Login(LoginDTO User)
+        {
+            //return error code if user does not have valid username or pw.
+            IActionResult Result = Unauthorized();
+
+            //check to see does user exist
+            if (DoesUserExist(User.UserName))
+            {
+                //true
+                //want to store user object
+                //create another helper function
+                UserModel foundUser = GetUserByUsername(User.UserName);
+                //check if pw is correct
+                if (VerifyUserPassword(User.Password, foundUser.Hash, foundUser.Salt))
+                {
+                    var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
+                    var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                    var tokeOptions = new JwtSecurityToken(
+                        issuer: "http://localhost:5000",
+                        audience: "http://localhost:5000",
+                        claims: new List<Claim>(),
+                        expires: DateTime.Now.AddMinutes(30),
+                        signingCredentials: signinCredentials
+                    );
+                    var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+                    Result = Ok(new { Token = tokenString });
+                }
+            }
+
+            return Result;
+
+        }
+
+        public UserModel GetUserByUsername(string? username)
+        {
+            return _context.UserInfo.SingleOrDefault(user => user.UserName == username);
         }
     }
 }
