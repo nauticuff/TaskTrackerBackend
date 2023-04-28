@@ -1,0 +1,101 @@
+Note's from Danny's Blog API lecture for reference to set up the back end.
+
+GOALS: 
+API handles all crud functions
+
+In our app user should be able to login, create account, home page (see all tasks), profile page (edit tasks, delete tasks, add tasks, assign tasks), admin page should also be able to edit, delete, add, assign, but also will have other admin features?
+
+//Codebase Structure
+
+//Controllers:
+    Controllers Folder
+        User Controller File
+            Login Endpoint 
+            Create a user Endpoint
+            Update a user Endpoint
+            Delete a user Endpoint
+
+        Task Controller File
+            Create a task item Endpoint
+            Get all task items Endpoint
+            Edit a task item Endpoint
+            Update a task item Endpoint
+            Delete a task item Endpoint
+            Assign a task item Endpoint
+            Move a task item Endpoint
+            Get tasks by UserID Endpoint
+            Get tasks by title word search (For example: How jira allows you to search a word or phrase and it will show all tasks that have the word/s in the title)
+
+
+//Services:
+    Services Folder
+        Context Folder
+            DataContext File
+
+        UserService File
+            GetUserByUserName Function 
+            Login Function
+            Create a user Function
+            Update a user Function
+            Delete a user Function
+
+        TaskService File
+            Create a task item Function
+            Get all task items Function
+            Edit a task item Function
+            Update a task item Function
+            Delete a task item Function
+            Assign a task item Function
+            Move a task item Function
+            Get tasks by UserID Function
+            Get tasks by title word search (For example: How jira allows you to search a word or phrase and it will show all tasks that have the word/s in the title)
+
+        PasswordService File
+            Hash Password
+            Verify Hash Password
+
+//Models:
+    Models Folder
+        UserModel File
+            int ID 
+            string UserName 
+            string Salt
+            string Hash 
+
+        TaskItemModel File
+            int ID
+            int UserID
+            string Title 
+            string Attachments
+            string Description
+            string Commments
+            string LinkedTasks
+            string Assignee
+            string Reporter
+            bool isPublished
+            bool isDeleted
+            bool isInProgress
+            bool isComplete
+
+        DTOs Folder
+            LoginDTO File   
+                string UserName
+                string Password
+
+            CreateAccountDTO File
+                int ID = 0
+                string UserName
+                string Password
+
+            PasswordDTO File
+                string Salt
+                string Hash
+
+
+
+
+AZURE DATABASE INFO
+Server Name: task-tracker-sprint
+Server Admin Login: brandonisthebest
+Password: weloveBrandon!!
+
