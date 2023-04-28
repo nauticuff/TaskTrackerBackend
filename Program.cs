@@ -41,6 +41,9 @@ if (app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 
+app.UseCors("TaskTrackerPolicy");
+
+
 app.UseAuthorization();
 
 app.MapControllers();
