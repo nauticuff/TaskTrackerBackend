@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("TaskTrackerPolicy",
     builder =>
     {
-        builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "https://tasktrackersprintapi.azurewebsites.net", "https://sprintteamhufflepuff.azurewebsites.net/")
+        builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "https://tasktrackersprintapi.azurewebsites.net", "https://sprintteamhufflepuff.azurewebsites.net")
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
